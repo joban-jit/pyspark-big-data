@@ -30,15 +30,15 @@ kv_pair_rdd = words.map(lambda x: (x, 1))
 word_counts_rdd = kv_pair_rdd.reduceByKey(lambda x, y: x + y)
 
 # sorting
-flipped_pair_position_rdd = word_counts_rdd.map(lambda x, y: (y, x))
-# word_counts_sorted_rdd = flipped_pair_position_rdd.sortByKey()
+flipped_pair_position_rdd = word_counts_rdd.map(lambda wc: (wc[1], wc[0]))
+word_counts_sorted_rdd = flipped_pair_position_rdd.sortByKey()
 
 # collect and print
 
+results = word_counts_sorted_rdd.collect()
 
-print(flipped_pair_position_rdd.collect())
-
-# for word, count in word_count_dict.items():
-#     clean_word = word.encode('ascii', 'ignore')
-#     if clean_word:
-#         print(clean_word, count)
+for result in results:
+    count = str(result[0])
+    word = result[1].encode('ascii', 'ignore')
+    if word:
+        print(f'{word}: {count}')
