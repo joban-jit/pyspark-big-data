@@ -23,6 +23,7 @@ print("Group by age")
 people_df.groupby("age").count().show(5)
 
 print("Make everyone 10 years older: ")
-people_df.select(people_df, people_df.age+10).show()
+
+people_df.select(people_df.name, people_df.age+10).show()
 
 spark.stop()
