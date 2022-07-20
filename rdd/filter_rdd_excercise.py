@@ -1,5 +1,5 @@
 from pyspark import SparkConf, SparkContext
-from rdd import get_data_file_path
+from utilities.helper import get_data_file_path
 
 file_path_in_data_folder = "1800.csv"
 conf = SparkConf().setMaster("local[*]").setAppName("MaxTemperature")
