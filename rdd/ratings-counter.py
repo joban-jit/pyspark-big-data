@@ -1,6 +1,6 @@
 from pyspark import SparkConf, SparkContext
 import collections
-from rdd.utilities.helper import get_data_file_path
+from utilities.helper import get_data_file_path
 
 file_path_in_data_folder = "ml-100k/u.data"
 

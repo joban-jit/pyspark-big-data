@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as f
 from utilities.helper import get_data_file_path
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
+from pyspark.sql.types import StructType, StructField, StringType, FloatType
 
 spark = SparkSession.builder.appName("DataFrameWithUnstructuredData").getOrCreate()
 
